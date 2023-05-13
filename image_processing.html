@@ -1,13 +1,84 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Image Processing</title>
+<title>Image Processing</title>
 </head>
 <body>
-  <h1>Image Processing</h1>
-  <p>This is a simple image processing program. You can use it to resize, crop, and rotate images.</p>
-  <form action="image_processing.py" method="post" enctype="multipart/form-data">
-    <input type="file" name="image">
-    <input type="submit" value="Process Image">
-  </form>
+<h1>Image Processing</h1>
+
+<input type="file" id="image-upload" />
+
+<button onclick="uploadImage()">Upload Image</button>
+<button onclick="blurImage()">Blur Image</button>
+<button onclick="resizeImage()">Resize Image</button>
+<button onclick="rotateImage()">Rotate Image</button>
+<button onclick="flipImageHorizontally()">Flip Image Horizontally</button>
+<button onclick="flipImageVertically()">Flip Image Vertically</button>
+<button onclick="downloadImage()">Download Image</button>
+
+<div id="original-image">
+</div>
+
+<div id="processed-images">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.12.0/p5.min.js"></script>
+
+<script>
+function uploadImage() {
+  var image = document.getElementById("image-upload");
+  var file = image.files[0];
+
+  if (file) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var imageData = event.target.result;
+      var image = new Image();
+      image.src = imageData;
+      document.getElementById("original-image").innerHTML = "<img src='" + imageData + "' />";
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function blurImage() {
+  var image = document.getElementById("original-image").querySelector("img");
+  var blurredImage = blurImage(image);
+  document.getElementById("processed-images").innerHTML = "<img src='" + blurredImage + "' />";
+}
+
+function resizeImage() {
+  var image = document.getElementById("original-image").querySelector("img");
+  var resizedImage = resizeImage(image, 200, 200);
+  document.getElementById("processed-images").innerHTML = "<img src='" + resizedImage + "' />";
+}
+
+function rotateImage() {
+  var image = document.getElementById("original-image").querySelector("img");
+  var rotatedImage = rotateImage(image, 45);
+  document.getElementById("processed-images").innerHTML = "<img src='" + rotatedImage + "' />";
+}
+
+function flipImageHorizontally() {
+  var image = document.getElementById("original-image").querySelector("img");
+  var flippedImage = flipImageHorizontally(image);
+  document.getElementById("processed-images").innerHTML = "<img src='" + flippedImage + "' />";
+}
+
+function flipImageVertically() {
+  var image = document.getElementById("original-image").querySelector("img");
+  var flippedImage = flipImageVertically(image);
+  document.getElementById("processed-images").innerHTML = "<img src='" + flippedImage + "' />";
+}
+
+function downloadImage() {
+  var image = document.getElementById("processed-images").querySelector("img");
+  var link = document.createElement("a");
+  link.href = image.src;
+  link.download = image.src.split("/").pop();
+  link.click();
+}
+</script>
 </body>
 </html>
