@@ -3,9 +3,29 @@
 <head>
     <title>We are Cats!</title>
     <meta charset="utf-8">
+    <style>
+        .right-button {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-size: 16px;
+            color: white;
+            background-color: blue;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            }
+
+        .right-button:hover {
+            background-color: lightblue;
+        }
+    </style>
 </head>
 <body>
     <h1>Cat Cat</h1>
+    <button type="button" class="right-button" onclick="window.location='image_processing.html'" title="Image Processing Project">IPP</button>
     <main>
         <section>
             <h2>All cat photos you need.</h2>
