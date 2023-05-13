@@ -41,7 +41,7 @@ def save_image(image, filename):
   """Saves an image to a file."""
   image.save(filename)
 
-def main():
+def process_image():
   # Get the image URL from the user.
   image_url = input('Enter the image URL: ')
 
@@ -68,4 +68,4 @@ def main():
   save_image(rotated_image, 'rotated_image.png')
 
 if __name__ == '__main__':
-  main()
+  process_image()
