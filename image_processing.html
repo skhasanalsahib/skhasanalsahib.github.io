@@ -74,11 +74,17 @@ function flipImageVertically() {
 
 function downloadImage() {
   var image = document.getElementById("processed-images").querySelector("img");
+  var canvas = document.createElement('canvas');
+  canvas.width = image.width;
+  canvas.height = image.height;
+  var ctx = canvas.getContext('2d');
+  ctx.drawImage(image, 0, 0);
   var link = document.createElement("a");
-  link.href = image.src;
+  link.href = canvas.toDataURL();
   link.download = image.src.split("/").pop();
   link.click();
 }
+
 </script>
 </body>
 </html>
