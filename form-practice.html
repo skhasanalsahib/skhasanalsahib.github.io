@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form task</title>
+</head>
+<body>
+    <h1>Form Task</h1>
+    <form>
+        <label for="name">Name: </label>
+        <input id="name" type="text" placeholder="Enter your name" required><br><br>
+
+        <label for="mail">Mail: </label>
+        <input id="mail" type="mail" placeholder="example@mail.com" required><br><br>
+
+        <label for="phone-number">Phone Number: </label>
+        <input id="phone-number" type="number" placeholder="01234567891" required><br><br>
+        
+        <label for="dob">Date of Birth: </label>
+        <input id="dob" type="date" required><br>
+
+        <p>Gender:</p>
+        <input type="radio" name="gender" id="male" required>
+        <label for="male">Male</label>
+
+        <input type="radio" name="gender" id="female">
+        <label for="female">Female</label><br>
+
+        <p>Select Your Department:</p>
+        <select name="dept" id="dept" required>
+            <option value="none">----Select----</option>
+            <option value="computer">Computer</option>
+            <option value="electronics">Electronics</option>
+            <option value="civil">Civil</option>
+            <option value="rac">RAC</option>
+        </select><br>
+
+        <label for="color">Choose your favourite color: </label>
+        <input type="color" name="color" id="color">
+
+        <p>What are your favorite sports?</p>
+        <input id="cricket" type="checkbox">
+        <label for="cricket">Cricket</label>
+        
+        <input id="football" type="checkbox">
+        <label for="football">Football</label>
+        
+        <input id="hadudu" type="checkbox">
+        <label for="hadudu">Hadudu</label>
+        
+        <input id="badminton" type="checkbox">
+        <label for="badminton">Badminton</label>
+        
+        <input id="hockey" type="checkbox">
+        <label for="hockey">Hockey</label><br><br>
+
+        <label for="pass">Secret PIN: </label>
+        <input id="pass" type="password" name="pass" placeholder="Enter you PIN"><br><br>
+
+        <label for="upload">Upload an Image: </label>
+        <input id="upload" type="file" name="upload"><br><br>
+        
+        <input type="submit">
+        <input type="reset">
+
+    </form>
+
+    <script>
+        document.addEventListener('contextmenu',(e)=>{
+            e.preventDefault();
+        }
+        );
+        document.onkeydown = function(e) {
+        if(event.keyCode == 123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+        }
+    </script>
+
+</body>
+</html>
